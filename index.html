@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MLT Transportation | Luxury Party Bus & Premium Transportation</title>
+  <meta name="description" content="Luxury party bus and premium transportation for quinceañeras, weddings, proms, birthdays, nights out, and winery events across Southern California. Call/Text (714) 717-2731." />
+  <meta name="theme-color" content="#0b0b0f" />
+
+  <style>
+    :root{
+      --bg:#07070a;
+      --panel:#0e0f14;
+      --panel2:#0b0c11;
+      --text:#f3f4f6;
+      --muted:#b8bcc7;
+      --gold:#d7b15a;
+      --gold2:#b8892e;
+      --border:rgba(215,177,90,.18);
+      --shadow:0 18px 60px rgba(0,0,0,.55);
+      --radius:22px;
+      --max:1120px;
+      --ring:0 0 0 4px rgba(215,177,90,.16);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 700px at 70% -10%, rgba(215,177,90,.18), transparent 55%),
+                  radial-gradient(900px 600px at 10% 0%, rgba(215,177,90,.10), transparent 55%),
+                  linear-gradient(180deg, #050508, var(--bg));
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+
+    /* Layout helpers */
+    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .section{padding:72px 0}
+    .grid{display:grid; gap:18px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(215,177,90,.22), rgba(215,177,90,.08));
+      color:var(--text);
+      font-weight:700;
+      letter-spacing:.2px;
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
+      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{transform:translateY(-1px); border-color:rgba(215,177,90,.35)}
+    .btn:active{transform:translateY(0px)}
+    .btn.secondary{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.12);
+      font-weight:650;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(215,177,90,.22);
+      background:rgba(14,15,20,.55);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .pill{
+      display:inline-flex; align-items:center;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      color:#d7dae3;
+      font-size:13px;
+      white-space:nowrap;
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+    .card.gold{
+      background: radial-gradient(900px 400px at 20% 0%, rgba(215,177,90,.18), transparent 55%),
+                  linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border-color:rgba(215,177,90,.20);
+    }
+    .muted{color:var(--muted)}
+    .h1{
+      font-size:44px;
+      line-height:1.08;
+      letter-spacing:-.6px;
+      margin:10px 0 10px;
+    }
+    .h2{
+      font-size:30px;
+      line-height:1.15;
+      letter-spacing:-.3px;
+      margin:0 0 14px;
+    }
+    .kicker{
+      color:var(--gold);
+      font-weight:800;
+      letter-spacing:.16em;
+      font-size:12px;
+      text-transform:uppercase;
+    }
+    .lead{
+      font-size:18px;
+      color:#d9dbe3;
+      max-width:64ch;
+      margin:0 0 18px;
+    }
+    .divider{
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(215,177,90,.25), transparent);
+      margin:18px 0;
+    }
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background:rgba(7,7,10,.58);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width:200px;
+    }
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,.25), transparent 55%),
+                  linear-gradient(145deg, rgba(215,177,90,.95), rgba(184,137,46,.85));
+      box-shadow:0 14px 40px rgba(215,177,90,.22);
+      position:relative;
+      border:1px solid rgba(255,255,255,.18);
+    }
+    .logo:after{
+      content:"MLT";
+      position:absolute; inset:0;
+      display:flex; align-items:center; justify-content:center;
+      font-weight:900; font-size:12px;
+      color:#0b0b0f;
+      letter-spacing:.08em;
+    }
+    .brand b{font-size:14px; letter-spacing:.3px}
+    .brand span{display:block; font-size:12px; color:var(--muted); margin-top:1px}
+
+    .links{
+      display:flex; align-items:center; gap:16px;
+    }
+    .links a{
+      font-size:13px;
+      color:#d6d8e1;
+      opacity:.9;
+      padding:8px 10px;
+      border-radius:12px;
+      transition:background .15s ease, opacity .15s ease;
+    }
+    .links a:hover{background:rgba(255,255,255,.06); opacity:1}
+
+    .nav-cta{display:flex; gap:10px; align-items:center}
+    .mobile-toggle{display:none}
+
+    /* Hero */
+    .hero{
+      padding:54px 0 30px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .hero-card{
+      padding:28px;
+      border-radius:28px;
+      border:1px solid rgba(215,177,90,.20);
+      background:
+        radial-gradient(1200px 600px at 20% 0%, rgba(215,177,90,.16), transparent 55%),
+        radial-gradient(900px 500px at 110% 30%, rgba(215,177,90,.10), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(600px 300px at 60% 10%, rgba(215,177,90,.22), transparent 55%),
+        radial-gradient(400px 240px at 20% 110%, rgba(255,255,255,.08), transparent 55%);
+      opacity:.75;
+      pointer-events:none;
+    }
+    .hero-inner{position:relative}
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+    .hero-pills{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
+
+    .side{
+      display:grid;
+      gap:18px;
+    }
+    .side .card{padding:18px}
+    .stat{
+      display:flex; align-items:flex-start; justify-content:space-between;
+      gap:14px;
+    }
+    .stat b{font-size:16px}
+    .stat small{display:block; color:var(--muted); margin-top:4px; font-size:12px}
+    .callbox{
+      border:1px solid rgba(215,177,90,.22);
+      background:rgba(14,15,20,.55);
+      border-radius:18px;
+      padding:14px;
+    }
+    .callbox .row{display:flex; justify-content:space-between; gap:10px; align-items:center}
+    .callbox .num{font-weight:900; letter-spacing:.3px}
+    .callbox .hint{color:var(--muted); font-size:12px; margin-top:6px}
+
+    /* Content grids */
+    .cards-3{grid-template-columns: repeat(3, 1fr)}
+    .cards-4{grid-template-columns: repeat(4, 1fr)}
+    .cards-2{grid-template-columns: repeat(2, 1fr)}
+    .list{
+      margin:0; padding-left:18px; color:#d9dbe3;
+    }
+    .list li{margin:8px 0}
+
+    /* Form */
+    .form{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:12px;
+    }
+    .field{display:flex; flex-direction:column; gap:7px}
+    label{font-size:12px; color:var(--muted)}
+    input, select, textarea{
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      padding:12px 12px;
+      outline:none;
+      font-size:14px;
+    }
+    input:focus, select:focus, textarea:focus{box-shadow:var(--ring); border-color:rgba(215,177,90,.28)}
+    textarea{min-height:110px; resize:vertical}
+    .full{grid-column:1 / -1}
+
+    /* Footer */
+    footer{
+      border-top:1px solid rgba(255,255,255,.06);
+      padding:28px 0 40px;
+      background:rgba(7,7,10,.6);
+    }
+    .foot{
+      display:flex; flex-wrap:wrap; justify-content:space-between; gap:18px; align-items:flex-start;
+    }
+    .foot small{color:var(--muted)}
+    .foot a{opacity:.92}
+    .foot a:hover{opacity:1}
+
+    /* Responsive */
+    @media (max-width: 960px){
+      .hero-grid{grid-template-columns:1fr}
+      .cards-4{grid-template-columns: repeat(2, 1fr)}
+      .cards-3{grid-template-columns: repeat(2, 1fr)}
+      .form{grid-template-columns:1fr}
+      .links{display:none}
+      .mobile-toggle{display:inline-flex}
+    }
+    @media (max-width: 560px){
+      .h1{font-size:34px}
+      .cards-4{grid-template-columns:1fr}
+      .cards-3{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav class="nav">
+        <a class="brand" href="#home" aria-label="MLT Transportation Home">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <b>MLT Transportation</b>
+            <span>Luxury Party Bus & Premium Transportation</span>
+          </div>
+        </a>
+
+        <div class="links" aria-label="Primary navigation">
+          <a href="#fleet">Fleet</a>
+          <a href="#services">Services</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <!-- UPDATED: Added Instagram button in header -->
+        <div class="nav-cta">
+          <a class="btn secondary" href="tel:+17147172731">Call/Text</a>
+
+          <a class="btn secondary"
+             href="https://www.instagram.com/mylimotransportation?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+             target="_blank" rel="noopener noreferrer">
+            Instagram
+          </a>
+
+          <a class="btn" href="#contact">Request a Quote</a>
+          <a class="btn secondary mobile-toggle" href="#menu" onclick="toggleMenu(event)">Menu</a>
+        </div>
+      </nav>
+
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="card" style="display:none; margin:0 0 14px; padding:10px;">
+        <div class="grid" style="gap:8px;">
+          <a class="btn secondary" href="#fleet" onclick="toggleMenu(event)">Fleet</a>
+          <a class="btn secondary" href="#services" onclick="toggleMenu(event)">Services</a>
+          <a class="btn secondary" href="#pricing" onclick="toggleMenu(event)">Pricing</a>
+          <a class="btn secondary" href="#gallery" onclick="toggleMenu(event)">Gallery</a>
+          <a class="btn secondary" href="#reviews" onclick="toggleMenu(event)">Reviews</a>
+          <a class="btn secondary" href="#contact" onclick="toggleMenu(event)">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="home" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <section class="hero-card" aria-label="Hero">
+          <div class="hero-inner">
+            <div class="kicker">Southern California</div>
+            <h1 class="h1">Luxury Party Bus & Premium Transportation</h1>
+            <p class="lead">
+              Arrive in style for quinceañeras, weddings, proms, birthdays, club nights, winery events, and more.
+              Clean luxury fleet, professional drivers, and smooth booking from start to finish.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn" href="#contact">Request a Quote</a>
+              <a class="btn secondary" href="tel:+17147172731">Call/Text (714) 717-2731</a>
+            </div>
+
+            <div class="hero-pills" aria-label="Highlights">
+              <span class="pill">Professional Drivers</span>
+              <span class="pill">Clean Luxury Fleet</span>
+              <span class="pill">On-Time Pickup</span>
+              <span class="pill">VIP Event-Ready</span>
+              <span class="pill">Multiple Stops Available</span>
+            </div>
+
+            <div class="divider"></div>
+
+            <span class="badge">Fast quotes • Flexible packages • Local city trips</span>
+          </div>
+        </section>
+
+        <aside class="side" aria-label="Quick info">
+          <div class="card gold">
+            <div class="stat">
+              <div>
+                <b>Instant booking support</b>
+                <small>Text or call and we’ll guide you quickly.</small>
+              </div>
+              <div class="kicker">VIP</div>
+            </div>
+            <div class="divider"></div>
+            <div class="callbox">
+              <div class="row">
+                <div>
+                  <div class="muted" style="font-size:12px;">Call/Text</div>
+                  <div class="num">(714) 717-2731</div>
+                </div>
+                <a class="btn" style="padding:10px 12px; border-radius:12px;" href="tel:+17147172731">Call</a>
+              </div>
+              <div class="hint">Available for quotes, pricing, and scheduling.</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="kicker">Perfect For</div>
+            <h3 class="h2" style="font-size:22px; margin-top:6px;">Events that need luxury.</h3>
+            <ul class="list">
+              <li>Quinceañeras & birthdays</li>
+              <li>Weddings & receptions</li>
+              <li>Proms & formals</li>
+              <li>Clubbing / nights out</li>
+              <li>Winery events</li>
+              <li>Corporate & group transportation</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="kicker">Services</div>
+      <h2 class="h2">Luxury transportation for every occasion</h2>
+      <p class="muted" style="max-width:72ch; margin-top:-6px;">
+        From once-in-a-lifetime celebrations to simple nights out, we provide premium service and a smooth experience.
+      </p>
+
+      <div class="grid cards-4" style="margin-top:18px;">
+        <div class="card"><b>Quinceañeras</b><div class="muted" style="margin-top:6px;">Make the entrance unforgettable.</div></div>
+        <div class="card"><b>Weddings</b><div class="muted" style="margin-top:6px;">Stress-free, elegant transportation.</div></div>
+        <div class="card"><b>Proms & Formals</b><div class="muted" style="margin-top:6px;">Arrive in style with a pro driver.</div></div>
+        <div class="card"><b>Birthdays</b><div class="muted" style="margin-top:6px;">Keep the group together, all night.</div></div>
+        <div class="card"><b>Clubbing / Night Outs</b><div class="muted" style="margin-top:6px;">Multiple stops and flexible timing.</div></div>
+        <div class="card"><b>Winery Events</b><div class="muted" style="margin-top:6px;">Comfortable group rides.</div></div>
+        <div class="card"><b>Corporate & Group</b><div class="muted" style="margin-top:6px;">Reliable scheduling and service.</div></div>
+        <div class="card"><b>Winter Events</b><div class="muted" style="margin-top:6px;">Formals, parties, and special outings.</div></div>
+      </div>
+
+      <div class="grid cards-3" style="margin-top:18px;">
+        <div class="card gold">
+          <div class="kicker">Why MLT</div>
+          <h3 style="margin:8px 0 0; font-size:18px;">Premium service, every detail handled</h3>
+          <ul class="list">
+            <li>Clean, luxury interiors</li>
+            <li>Professional, punctual drivers</li>
+            <li>Easy booking + fast quotes</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="kicker">How it works</div>
+          <ol class="list">
+            <li><b>Request a quote</b> (date, hours, cities)</li>
+            <li><b>Confirm details</b> and lock your schedule</li>
+            <li><b>Enjoy your ride</b> — arrive in luxury</li>
+          </ol>
+        </div>
+        <div class="card">
+          <div class="kicker">Safety + comfort</div>
+          <ul class="list">
+            <li>Professional driver assigned</li>
+            <li>Comfort-focused experience</li>
+            <li>Local city trips & custom routes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLEET -->
+  <section id="fleet" class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="kicker">Fleet</div>
+      <h2 class="h2">Event-ready luxury rides</h2>
+      <p class="muted" style="max-width:72ch; margin-top:-6px;">
+        Replace these placeholders with your real vehicle photos anytime. The layout is already set up.
+      </p>
+
+      <div class="grid cards-3" style="margin-top:18px;">
+        <div class="card">
+          <b>Luxury Party Bus</b>
+          <div class="muted" style="margin-top:6px;">Perfect for celebrations and group events.</div>
+          <div class="divider"></div>
+          <ul class="list">
+            <li>Premium sound + party lighting (when requested)</li>
+            <li>Comfortable seating</li>
+            <li>Climate control</li>
+          </ul>
+          <div style="margin-top:14px;">
+            <a class="btn" href="#contact">Get a Quote</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <b>Premium Group Transportation</b>
+          <div class="muted" style="margin-top:6px;">Smooth rides for dinners, events, and outings.</div>
+          <div class="divider"></div>
+          <ul class="list">
+            <li>Clean interior, luxury feel</li>
+            <li>Professional service</li>
+            <li>Flexible scheduling</li>
+          </ul>
+          <div style="margin-top:14px;">
+            <a class="btn" href="#contact">Get a Quote</a>
+          </div>
+        </div>
+
+        <div class="card gold">
+          <b>Custom Event Packages</b>
+          <div class="muted" style="margin-top:6px;">Built around your route, timing, and event type.</div>
+          <div class="divider"></div>
+          <ul class="list">
+            <li>Multiple stops available</li>
+            <li>Local city trips</li>
+            <li>Weddings, proms, quinceañeras, and more</li>
+          </ul>
+          <div style="margin-top:14px;">
+            <a class="btn" href="#pricing">View Packages</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="section">
+    <div class="container">
+      <div class="kicker">Pricing</div>
+      <h2 class="h2">Simple packages. Custom quotes available.</h2>
+      <p class="muted" style="max-width:78ch; margin-top:-6px;">
+        Pricing varies by date, distance, hours, and event type. Request a quote for exact availability and pricing.
+      </p>
+
+      <div class="grid cards-3" style="margin-top:18px;">
+        <div class="card">
+          <b>4 Hours</b>
+          <div class="muted" style="margin-top:6px;">Great for local events and short trips.</div>
+          <div class="divider"></div>
+          <ul class="list">
+            <li>Local city trips</li>
+            <li>Flexible pickup timing</li>
+            <li>Professional driver</li>
+          </ul>
+          <div style="margin-top:14px;">
+            <a class="btn" href="#contact">Get Quote</a>
+          </div>
+        </div>
+
+        <div class="card gold">
+          <b>6 Hours</b>
+          <div class="muted" style="margin-top:6px;">Ideal for nights out and celebrations.</div>
+          <div class="divider"></div>
+          <ul class="list">
+            <li>Multiple stops available</li>
+            <li>Perfect for clubbing / nights out</li>
+            <li>Luxury experience</li>
+          </ul>
+          <div style="margin-top:14px;">
+            <a class="btn" href="#contact">Get Quote</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <b>Custom</b>
+          <div class="muted" style="margin-top:6px;">Weddings, proms, quinceañeras & special schedules.</div>
+          <div class="divider"></div>
+          <ul class="list">
+            <li>Custom route & itinerary</li>
+            <li>Event-based timing</li>
+            <li>Group transportation options</li>
+          </ul>
+          <div style="margin-top:14px;">
+            <a class="btn" href="#contact">Get Quote</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:18px;">
+        <b>Need something specific?</b>
+        <div class="muted" style="margin-top:6px;">Text or call for a fast quote and availability.</div>
+        <div class="hero-actions" style="margin-top:14px;">
+          <a class="btn" href="#contact">Request a Quote</a>
+          <a class="btn secondary" href="tel:+17147172731">Call/Text (714) 717-2731</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="kicker">Gallery</div>
+      <h2 class="h2">Luxury vibes, event-ready</h2>
+      <p class="muted" style="max-width:72ch; margin-top:-6px;">
+        Add your photos here (inside/outside). For now these are placeholders so the layout looks complete.
+      </p>
+
+      <div class="grid cards-3" style="margin-top:18px;">
+        <div class="card" style="padding:0; overflow:hidden;">
+          <div style="height:190px; background:linear-gradient(135deg, rgba(215,177,90,.30), rgba(255,255,255,.04));"></div>
+          <div style="padding:14px;"><b>Exterior</b><div class="muted">Clean luxury look</div></div>
+        </div>
+        <div class="card" style="padding:0; overflow:hidden;">
+          <div style="height:190px; background:linear-gradient(135deg, rgba(255,255,255,.06), rgba(215,177,90,.18));"></div>
+          <div style="padding:14px;"><b>Interior</b><div class="muted">Comfort + premium feel</div></div>
+        </div>
+        <div class="card" style="padding:0; overflow:hidden;">
+          <div style="height:190px; background:linear-gradient(135deg, rgba(215,177,90,.22), rgba(0,0,0,.25));"></div>
+          <div style="padding:14px;"><b>Event Nights</b><div class="muted">VIP experience</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="section">
+    <div class="container">
+      <div class="kicker">Reviews</div>
+      <h2 class="h2">Clients love the experience</h2>
+
+      <div class="grid cards-3" style="margin-top:18px;">
+        <div class="card">
+          <b>★★★★★</b>
+          <p style="margin:10px 0 0;">“Clean, luxury ride and super professional. Everyone had an amazing time.”</p>
+          <div class="muted" style="margin-top:10px;">— Customer Review</div>
+        </div>
+        <div class="card gold">
+          <b>★★★★★</b>
+          <p style="margin:10px 0 0;">“On time, easy booking, and the ride was perfect for our event.”</p>
+          <div class="muted" style="margin-top:10px;">— Customer Review</div>
+        </div>
+        <div class="card">
+          <b>★★★★★</b>
+          <p style="margin:10px 0 0;">“Driver was professional and everything went smooth from start to finish.”</p>
+          <div class="muted" style="margin-top:10px;">— Customer Review</div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:18px;">
+        <div class="stat">
+          <div>
+            <b>Want to add your real reviews?</b>
+            <small>Send me 5–10 reviews and I’ll format them perfectly.</small>
+          </div>
+          <a class="btn" href="#contact">Request a Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="kicker">Contact</div>
+      <h2 class="h2">Request a Quote</h2>
+      <p class="muted" style="max-width:78ch; margin-top:-6px;">
+        Fill out your details and we’ll reply with availability and pricing. You can also call/text us anytime.
+      </p>
+
+      <div class="grid cards-2" style="margin-top:18px;">
+        <div class="card gold">
+          <form id="quoteForm" class="form" autocomplete="on">
+            <div class="field">
+              <label for="name">Full Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required />
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="(000) 000-0000" required />
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@email.com" />
+            </div>
+            <div class="field">
+              <label for="eventType">Event Type</label>
+              <select id="eventType" name="eventType" required>
+                <option value="">Select one</option>
+                <option>Quinceañera</option>
+                <option>Wedding</option>
+                <option>Prom / Formal</option>
+                <option>Birthday</option>
+                <option>Clubbing / Night Out</option>
+                <option>Winery Event</option>
+                <option>Corporate / Group Transportation</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="date">Event Date</label>
+              <input id="date" name="date" type="date" />
+            </div>
+            <div class="field">
+              <label for="hours">Hours Needed</label>
+              <input id="hours" name="hours" type="text" placeholder="Example: 4 hours" />
+            </div>
+
+            <div class="field">
+              <label for="pickup">Pickup City</label>
+              <input id="pickup" name="pickup" type="text" placeholder="Example: Anaheim" />
+            </div>
+            <div class="field">
+              <label for="dropoff">Drop-off City</label>
+              <input id="dropoff" name="dropoff" type="text" placeholder="Example: Los Angeles" />
+            </div>
+
+            <div class="field full">
+              <label for="passengers">Passenger Count</label>
+              <input id="passengers" name="passengers" type="text" placeholder="Example: 20 passengers" />
+            </div>
+
+            <div class="field full">
+              <label for="notes">Notes / Itinerary</label>
+              <textarea id="notes" name="notes" placeholder="Stops, times, special requests, etc."></textarea>
+            </div>
+
+            <div class="field full" style="margin-top:6px;">
+              <button class="btn" type="submit">Send Quote Request</button>
+              <div class="muted" style="font-size:12px; margin-top:10px;">
+                This form opens your email app to send the request (no backend needed).
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="card">
+          <div class="kicker">Call / Text</div>
+          <h3 style="margin:8px 0 0; font-size:22px;">(714) 717-2731</h3>
+          <p class="muted" style="margin-top:8px;">Fast quotes, availability, and scheduling.</p>
+
+          <div class="divider"></div>
+
+          <div class="kicker">Service Area</div>
+          <p style="margin:8px 0 0;">Southern California</p>
+          <p class="muted" style="margin-top:8px;">Local city trips • Custom routes • Multiple stops available</p>
+
+          <div class="divider"></div>
+
+          <!-- UPDATED: Instagram button in contact section -->
+          <div class="kicker">Instagram</div>
+          <p style="margin:8px 0 0;">
+            <a class="btn secondary"
+               href="https://www.instagram.com/mylimotransportation?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+               target="_blank" rel="noopener noreferrer">
+              Follow @mylimotransportation
+            </a>
+          </p>
+
+          <div class="divider"></div>
+
+          <div class="kicker">Quick Actions</div>
+          <div class="hero-actions" style="margin-top:10px;">
+            <a class="btn" href="tel:+17147172731">Call Now</a>
+            <a class="btn secondary" href="sms:+17147172731">Text Now</a>
+          </div>
+
+          <div class="muted" style="margin-top:14px; font-size:12px;">
+            Tip: Ask for availability + pricing by date, hours, and cities.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <div class="logo" aria-hidden="true" style="width:32px;height:32px;border-radius:10px;"></div>
+            <div>
+              <b>MLT Transportation</b>
+              <div><small>Luxury Party Bus & Premium Transportation</small></div>
+            </div>
+          </div>
+
+          <!-- UPDATED: Footer now includes Instagram -->
+          <div style="margin-top:10px;">
+            <small>
+              Call/Text: <a href="tel:+17147172731">(714) 717-2731</a> •
+              <a href="https://www.instagram.com/mylimotransportation?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                 target="_blank" rel="noopener noreferrer">
+                @MyLimoTransportation
+              </a>
+            </small>
+          </div>
+        </div>
+
+        <div>
+          <small><a href="#services">Services</a> • <a href="#fleet">Fleet</a> • <a href="#pricing">Pricing</a> • <a href="#contact">Contact</a></small>
+          <div style="margin-top:10px;">
+            <small>© <span id="year"></span> MLT Transportation. All rights reserved.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    function toggleMenu(e){
+      if(e) e.preventDefault();
+      const menu = document.getElementById('mobileMenu');
+      menu.style.display = (menu.style.display === 'none' || menu.style.display === '') ? 'block' : 'none';
+      return false;
+    }
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Quote form -> opens email client (no backend needed)
+    document.getElementById('quoteForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const get = (id) => document.getElementById(id).value.trim();
+
+      const subject = encodeURIComponent("Quote Request - MLT Transportation");
+      const body = encodeURIComponent(
+        `Name: ${get('name')}\n` +
+        `Phone: ${get('phone')}\n` +
+        `Email: ${get('email')}\n` +
+        `Event Type: ${get('eventType')}\n` +
+        `Event Date: ${get('date')}\n` +
+        `Hours Needed: ${get('hours')}\n` +
+        `Pickup City: ${get('pickup')}\n` +
+        `Drop-off City: ${get('dropoff')}\n` +
+        `Passengers: ${get('passengers')}\n\n` +
+        `Notes / Itinerary:\n${get('notes')}\n`
+      );
+
+      // CHANGE THIS to your business email when you have it:
+      const to = "mlttransportations@gmail.com";
+
+      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
