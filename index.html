@@ -26,6 +26,28 @@
     html{scroll-behavior:smooth}
     body{
       margin:0;
+     
+} 
+    /* ===== MLT GALLERY ===== */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
+  margin-top:40px;
+}
+
+.gallery-grid img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+  transition:.25s ease;
+}
+
+.gallery-grid img:hover{
+  transform:scale(1.04);
+}
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       background: radial-gradient(1200px 700px at 70% -10%, rgba(215,177,90,.18), transparent 55%),
                   radial-gradient(900px 600px at 10% 0%, rgba(215,177,90,.10), transparent 55%),
@@ -583,30 +605,53 @@
   </section>
 
   <!-- GALLERY -->
-  <section id="gallery" class="section" style="padding-top:0;">
-    <div class="container">
-      <div class="kicker">Gallery</div>
-      <h2 class="h2">Luxury vibes, event-ready</h2>
-      <p class="muted" style="max-width:72ch; margin-top:-6px;">
-        Add your photos here (inside/outside). For now these are placeholders so the layout looks complete.
-      </p>
+ <section id="gallery">
+  <div class="container">
+    <h2 class="section-title">Gallery</h2>
 
-      <div class="grid cards-3" style="margin-top:18px;">
-        <div class="card" style="padding:0; overflow:hidden;">
-          <div style="height:190px; background:linear-gradient(135deg, rgba(215,177,90,.30), rgba(255,255,255,.04));"></div>
-          <div style="padding:14px;"><b>Exterior</b><div class="muted">Clean luxury look</div></div>
-        </div>
-        <div class="card" style="padding:0; overflow:hidden;">
-          <div style="height:190px; background:linear-gradient(135deg, rgba(255,255,255,.06), rgba(215,177,90,.18));"></div>
-          <div style="padding:14px;"><b>Interior</b><div class="muted">Comfort + premium feel</div></div>
-        </div>
-        <div class="card" style="padding:0; overflow:hidden;">
-          <div style="height:190px; background:linear-gradient(135deg, rgba(215,177,90,.22), rgba(0,0,0,.25));"></div>
-          <div style="padding:14px;"><b>Event Nights</b><div class="muted">VIP experience</div></div>
-        </div>
-      </div>
+    <div class="gallery-grid">
+      <!-- ASSETS -->
+      <img src="images/assetsquince-blue.jpg" alt="Quince Blue">
+      <img src="images/assetsquince-door.jpg" alt="Quince Door">
+      <img src="images/assetsinterior-purple1.jpg" alt="Interior Purple">
+      <img src="images/assetswhite-bus.jpg" alt="White Bus">
+      <img src="images/assetsinterior-blue.jpg" alt="Interior Blue">
+      <img src="images/assetsclassic-car.jpg" alt="Classic Car">
+      <img src="images/assetspink-quince.jpg" alt="Pink Quince">
+      <img src="images/assetsblack-bus.jpg" alt="Black Bus">
+      <img src="images/assetsred-quince.jpg" alt="Red Quince">
+      <img src="images/assetsinterior-group.jpg" alt="Interior Group">
+
+      <!-- BUS / EXTERIOR -->
+      <img src="images/bus1.jpg" alt="Bus 1">
+      <img src="images/bus2.jpg" alt="Bus 2">
+      <img src="images/black1.jpg" alt="Black Bus Night">
+
+      <!-- QUINCE -->
+      <img src="images/quince1.jpg" alt="Quince 1">
+      <img src="images/redquince1.jpg" alt="Red Quince 1">
+      <img src="images/pinkquince1.jpg" alt="Pink Quince 1">
+      <img src="images/pinkquince2.jpg" alt="Pink Quince 2">
+      <img src="images/quince-cowboys.jpg" alt="Quince Cowboys">
+      <img src="images/quince-yellow.jpg" alt="Quince Yellow">
+      <img src="images/quince-green.jpg" alt="Quince Green">
+      <img src="images/quince-red.jpg" alt="Quince Red">
+      <img src="images/quince-white-group.jpg" alt="Quince White Group">
+      <img src="images/quince-white2.jpg" alt="Quince White">
+      <img src="images/quince-purple-night.jpg" alt="Quince Purple Night">
+      <img src="images/quince-pink.jpg" alt="Quince Pink">
+
+      <!-- CLASSIC / LIMO -->
+      <img src="images/classic-car.jpg" alt="Classic Car">
+      <img src="images/white-limo-night.jpg" alt="White Limo Night">
+
+      <!-- INTERIOR -->
+      <img src="images/plaininterior.jpg" alt="Plain Interior">
+      <img src="images/interior-blue.jpg" alt="Interior Blue">
+      <img src="images/interior-red-green.jpg" alt="Interior Red Green">
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- REVIEWS -->
   <section id="reviews" class="section">
@@ -832,4 +877,5 @@
     });
   </script>
 </body>
+
 </html>
