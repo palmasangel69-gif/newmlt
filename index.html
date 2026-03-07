@@ -877,7 +877,8 @@
           throw new Error('Submission failed');
         }
 
-        window.location.href = '/thank-you.html';
+        const result = await response.json();
+        window.location.href = result.redirect;
       } catch (error) {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Send Quote Request';
@@ -887,5 +888,6 @@
   </script>
 </body>
 </html>
+
 
 
